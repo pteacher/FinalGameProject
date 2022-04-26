@@ -10,6 +10,7 @@ import processing.core.PApplet;
 public class Main extends PApplet {
     final int WIDTH = 800;
     final int HEIGHT = 600;
+    private boolean isStopped = true;
     private Creature creature;
 
     @Override
@@ -20,13 +21,17 @@ public class Main extends PApplet {
     @Override
     public void setup() {
         creature = new Creature(0, 0, 42, 100);
-        creature.teleport(200, 100);
+        creature.teleport(1000, 1000);
     }
 
     @Override
     public void draw() {
         background(200);
-        creature.moveTo(1000, 300);
+        // creature.moveTo(mouseX, mouseY);
+        if (!isStopped) {
+            creature.moveTo(0);
+        }
+        isStopped = !mousePressed;
         int x = creature.getX();
         int y = creature.getY();
         int size = creature.getSize();

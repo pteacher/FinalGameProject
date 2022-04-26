@@ -45,8 +45,14 @@ public class Creature {
 
     public void moveTo(int x, int y) {
         if (getDistance(this.x, this.y, x, y) > 0.5) {
-            this.x -= (this.x - x) / 100;
-            this.y -= (this.y - y) / 100;
+            this.x -= (this.x - x) / 1;
+            this.y -= (this.y - y) / 1;
+        }
+    }
+
+    public void moveTo(int dir) {
+        if (dir == 0) {
+            this.y -= size;
         }
     }
 
