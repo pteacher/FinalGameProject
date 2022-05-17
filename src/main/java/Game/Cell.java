@@ -12,9 +12,11 @@ public class Cell {
 
     private STATE state;
     private enum color {RED, GREEN, GREY};
+    private int value;
 
     public Cell(int size) {
         this.size = size;
+        this.value = 0;
         this.state = state.EMPTY;
     }
 
@@ -27,6 +29,14 @@ public class Cell {
         this.x = x;
         this.y = y;
         this.state = STATE.EMPTY;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
 
     public int getX() {
